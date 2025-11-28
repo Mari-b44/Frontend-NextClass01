@@ -1,18 +1,57 @@
+import client from "../api/axios";
 import { useState, useEffect } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Logoprincipal from "../assets/Logoprincipal.png";
 import garra from "../assets/garra.png";
 
+
 export default function Login() {
   const navigate = useNavigate();
   const colorPrincipal = "#00B8C8";
+  
+  // ESTADOS PARA LA LÓGICA
   const [showSplash, setShowSplash] = useState(true);
+  const [matricula, setMatricula] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 2500);
     return () => clearTimeout(timer);
   }, []);
+
+  // FUNCIÓN PARA CONECTAR CON EL BACKEND
+  const handleLogin = async () => {
+    if (!matricula || !password) return alert("Faltan datos");
+    setLoading(true);
+
+    try {
+        // Ya no necesitas poner http://localhost:3000...
+        // client.post se encarga de todo
+        const response = await client.post("/auth/login", { matricula, password });
+
+        // Axios devuelve los datos en .data automáticamente
+        const { token, role } = response.data; 
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("role", role);
+
+        if (role === "admin") {
+            navigate("/PantallaAdminPrincipal");
+        } else {
+            navigate("/PantallaActual");
+        }
+
+    } catch (error) {
+        console.error(error);
+        // Axios maneja los errores en error.response.data
+        const mensaje = error.response?.data?.message || "Error al conectar";
+        alert(mensaje);
+    } finally {
+        setLoading(false);
+    }
+};
 
   if (showSplash) {
     return (
@@ -62,7 +101,7 @@ export default function Login() {
           src={Logoprincipal}
           alt="Logo"
           style={{
-            width: "150px", // LOGO MÁS GRANDE
+            width: "150px", 
             filter: "drop-shadow(0 0 14px rgba(255,255,255,0.5))",
             marginBottom: "0.5rem",
           }}
@@ -129,7 +168,6 @@ export default function Login() {
               transition: "all 0.3s ease",
               zIndex: 2,
             }}
-            className="icono-input"
           >
             <FaUser color={colorPrincipal} size={20} />
           </div>
@@ -137,6 +175,9 @@ export default function Login() {
           <input
             type="text"
             placeholder="Matricula"
+            // VINCULACIÓN CON ESTADO
+            value={matricula}
+            onChange={(e) => setMatricula(e.target.value)}
             style={{
               width: "100%",
               height: "58px",
@@ -147,7 +188,7 @@ export default function Login() {
               boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
               fontSize: "1rem",
               fontWeight: "600",
-              color: "#999",
+              color: "#555",
               outline: "none",
             }}
             onFocus={(e) => {
@@ -181,7 +222,6 @@ export default function Login() {
               transition: "all 0.3s ease",
               zIndex: 2,
             }}
-            className="icono-input"
           >
             <FaLock color={colorPrincipal} size={20} />
           </div>
@@ -189,6 +229,9 @@ export default function Login() {
           <input
             type="password"
             placeholder="Contraseña"
+            // VINCULACIÓN CON ESTADO
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             style={{
               width: "100%",
               height: "58px",
@@ -199,7 +242,7 @@ export default function Login() {
               boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
               fontSize: "1rem",
               fontWeight: "600",
-              color: "#999",
+              color: "#555",
               outline: "none",
             }}
             onFocus={(e) => {
@@ -233,20 +276,23 @@ export default function Login() {
         <div className="text-center">
           <button
             className="fw-bold text-white"
+            // CAMBIO: AHORA LLAMA A HANDLELOGIN
+            onClick={handleLogin}
+            disabled={loading}
             style={{
               width: "130px",
               height: "42px",
               borderRadius: "25px",
-              backgroundColor: "#007E8C",
+              backgroundColor: loading ? "#ccc" : "#007E8C",
               border: "none",
               boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
               marginBottom: "1rem",
+              cursor: loading ? "wait" : "pointer"
             }}
-            onMouseEnter={(e) => (e.target.style.backgroundColor = "#0099A8")}
-            onMouseLeave={(e) => (e.target.style.backgroundColor = "#007E8C")}
-            onClick={() => navigate("/PantallaActual")}
+            onMouseEnter={(e) => !loading && (e.target.style.backgroundColor = "#0099A8")}
+            onMouseLeave={(e) => !loading && (e.target.style.backgroundColor = "#007E8C")}
           >
-            Login
+            {loading ? "Cargando..." : "Login"}
           </button>
           <br />
           <button
