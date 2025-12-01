@@ -18,6 +18,7 @@ import Asignaturas from './Asignaturas';
 // IMPORTACIÓN DE IMÁGENES (Asegúrate de que los nombres coincidan exactamente)
 import imgGarra from '../assets/garra.png';
 import imgLogo from '../assets/Logo.png';
+import { left } from '@popperjs/core';
 
 // Placeholder decorativo (opcional, si quieres mantener la garra de fondo transparente)
 const garraFondo = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjMDA3RThDIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgb3BhY2l0eT0iMC4yIi8+PC9zdmc+";
@@ -227,7 +228,7 @@ export default function AdminDashboard() {
             onMouseEnter={(e) => { e.currentTarget.style.color = "white"; e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)" }}
             onMouseLeave={(e) => { e.currentTarget.style.color = "#B2DFDB"; e.currentTarget.style.background = "transparent"; }}
           >
-            <div style={{ minWidth: "25px", display: "flex", justifyContent: "center" }}>
+            <div style={{ minWidth: "25px", display: "flex", justifyContent: "center", transform: "translateX(-10px)" } }>
                <LogOut size={20} />
             </div>
             <div style={{ marginLeft: "15px", opacity: sidebarOpen ? 1 : 0, width: sidebarOpen ? "auto" : 0, overflow: "hidden", whiteSpace: "nowrap", transition: "opacity 0.2s", fontWeight: "500" }}>
