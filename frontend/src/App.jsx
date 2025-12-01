@@ -23,6 +23,7 @@ import HorarioGuardado from './components/HorarioGuardado';
 import AggTareas from './components/AggTareas';
 import AddTask from './components/AddTask';
 import TareaGuardada from './components/TareaGuardada';
+import Dashboard from './components/Dashboard';
 
 
 // Control para ocultar NavBar en ciertas pantallas
@@ -48,9 +49,12 @@ function Layout({ children }) {
     "/AggTareas",
     "/AddTask",
     "/TareaGuardada",
+    "/Dashboard",
   ];
   
-  const shouldHideNavBar = hideNavBarRoutes.includes(location.pathname);
+  const shouldHideNavBar = 
+      hideNavBarRoutes.includes(location.pathname) || 
+      location.pathname.startsWith('/admin');
   
   return (
     <>
@@ -85,6 +89,7 @@ function App() {
           <Route path='/AggTareas' element={< AggTareas />} />
           <Route path='/AddTask' element={< AddTask />} />
           <Route path='/TareaGuardada' element={< TareaGuardada />} />
+          <Route path='/Dashboard' element={ < Dashboard />} />
 
 
         </Routes>
