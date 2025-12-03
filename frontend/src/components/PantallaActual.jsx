@@ -125,6 +125,14 @@ export default function PantallaActual() {
           <div className="bg-dark text-white p-2 rounded mb-2">
             Laboratorio 2 — Gestión de proyectos 
           </div>
+
+         <div className="bg-dark text-white p-2 rounded mb-2">
+            Laboratorio 2 — Gestión de proyectos 
+          </div>
+          <div className="bg-dark text-white p-2 rounded mb-2">
+            Laboratorio 3 — Integradora  
+          </div>
+          
         </div>
       </div>
     </div>
