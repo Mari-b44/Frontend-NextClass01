@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/ClassSelect.css";
 import garra from "../assets/garra.png";
-import icono from "../assets/icon.png";
+import Logo from "../assets/Logo.png";
 import pasillo from "../assets/hallway.png";
 
 export default function ClassSelectScreen() {
@@ -10,7 +10,7 @@ export default function ClassSelectScreen() {
 
       {/* HEADER */}
       <header className="top-header">
-        <img className="header-icon" src={icono} alt="icon" />
+        <img className="header-icon" src={Logo} alt="icon" />
 
         <h2 className="month">OCTUBRE</h2>
 

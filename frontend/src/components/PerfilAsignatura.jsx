@@ -54,19 +54,39 @@ export default function PerfilAsignatura({ materia, onBack }) {
           {materia}
         </h4>
 
-        {/* Foto fija de Mayra */}
-        <div className="text-center mt-3">
-          <img
-            src={Mayra}
-            alt="Docente"
+        {/* FOTO DE MAYRA — NUEVO ESTILO BONITO */}
+        <div className="text-center mt-2">
+          <div
             style={{
-              width: "170px",
-              height: "170px",
-              borderRadius: "12px",
-              objectFit: "cover",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+              width: "175px",
+              height: "175px",
+              margin: "0 auto",
+              borderRadius: "50%",
+              padding: "3px", 
+              background: "linear-gradient(135deg, #FF8DA1, #B83256, #8A1E41)",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.20)",
             }}
-          />
+          >
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                overflow: "hidden",
+                backgroundColor: "white",
+              }}
+            >
+              <img
+                src={Mayra}
+                alt="Docente"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          </div>
         </div>
 
         {/* Botones */}

@@ -1,80 +1,67 @@
 import React from "react";
-import logo from "../assets/react.svg"; // usa temporalmente el logo de React
+import { FaClock, FaListUl, FaBookOpen } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
 
-function NavBar() {
+export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const active = location.pathname; // para saber qué opción está activa
+
   return (
-    <nav
-      className="navbar navbar-expand-lg"
+    <div
       style={{
-        background: "linear-gradient(to right, #007E8C, #00B8C8)",
-        padding: "0.7rem 1.2rem",
-        boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        height: "70px",
+        backgroundColor: "#f3f3f3",
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+        boxShadow: "0 -3px 10px rgba(0,0,0,0.1)",
+        zIndex: 1000,
       }}
     >
-      <div className="container-fluid">
-        {/* LOGO + Nombre */}
-        <a
-          className="navbar-brand d-flex align-items-center"
-          href="#"
-          style={{ color: "white", fontWeight: "700", fontSize: "1.4rem" }}
-        >
-          <img
-            src={logo}
-            alt="logo"
-            style={{
-              width: "35px",
-              marginRight: "10px",
-              filter: "drop-shadow(0 0 8px rgba(255,255,255,0.5))",
-            }}
-          />
-          Nextclass
-        </a>
-
-        {/* Botón responsive */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          style={{ borderColor: "white" }}
-        >
-          <span
-            className="navbar-toggler-icon"
-            style={{ filter: "invert(1) brightness(2)" }}
-          ></span>
-        </button>
-
-        {/* Opciones del menú */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a
-                className="nav-link active text-white"
-                aria-current="page"
-                href="#"
-                style={{ fontWeight: "500" }}
-              >
-                Inicio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#">
-                Acerca de
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#">
-                Contacto
-              </a>
-            </li>
-          </ul>
-        </div>
+      {/* Horario */}
+      <div
+        onClick={() => navigate("/PantallaActual")}
+        style={{
+          textAlign: "center",
+          cursor: "pointer",
+          color: active === "/PantallaActual" ? "#8A1E41" : "#333",
+        }}
+      >
+        <FaClock size={28} />
+        <p style={{ margin: 0, fontSize: "12px" }}>Horario</p>
       </div>
-    </nav>
+
+      {/* Tareas */}
+      <div
+        onClick={() => navigate("/Tareas")}
+        style={{
+          textAlign: "center",
+          cursor: "pointer",
+          color: active === "/Tareas" ? "#8A1E41" : "#333",
+        }}
+      >
+        <FaListUl size={28} />
+        <p style={{ margin: 0, fontSize: "12px" }}>Tareas</p>
+      </div>
+
+      {/* Asignaturas */}
+      <div
+        onClick={() => navigate("/Asignaturas")}
+        style={{
+          textAlign: "center",
+          cursor: "pointer",
+          color: active === "/Asignaturas" ? "#8A1E41" : "#333",
+        }}
+      >
+        <FaBookOpen size={28} />
+        <p style={{ margin: 0, fontSize: "12px" }}>Asignaturas</p>
+      </div>
+    </div>
   );
 }
-
-export default NavBar;

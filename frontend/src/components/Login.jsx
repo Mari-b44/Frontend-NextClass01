@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Logoprincipal from "../assets/Logoprincipal.png";
+import Logo from "../assets/Logo.png";
 import garra from "../assets/garra.png";
 
 export default function Login() {
@@ -21,7 +21,7 @@ export default function Login() {
         style={{ backgroundColor: "black", transition: "opacity 1s ease" }}
       >
         <img
-          src={Logoprincipal}
+          src={Logo}
           alt="Logo"
           style={{
             width: "190px",
@@ -59,7 +59,7 @@ export default function Login() {
         }}
       >
         <img
-          src={Logoprincipal}
+          src={Logo}
           alt="Logo"
           style={{
             width: "150px", // LOGO MÁS GRANDE
@@ -106,7 +106,7 @@ export default function Login() {
             textAlign: "left",
           }}
         >
-          Login
+          Acceso
         </h3>
 
         {/* INPUT MATRÍCULA */}
@@ -246,7 +246,7 @@ export default function Login() {
             onMouseLeave={(e) => (e.target.style.backgroundColor = "#007E8C")}
             onClick={() => navigate("/PantallaActual")}
           >
-            Login
+            Acceder
           </button>
           <br />
           <button
@@ -264,7 +264,7 @@ export default function Login() {
             onMouseEnter={(e) => (e.target.style.backgroundColor = "#f0f0f0")}
             onMouseLeave={(e) => (e.target.style.backgroundColor = "#fff")}
           >
-            Sign Up
+            Registrarse
           </button>
         </div>
       </div>

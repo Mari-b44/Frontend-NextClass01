@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import icon from "../assets/icon.png";
+import Logo from "../assets/Logo.png";
 import garra from "../assets/garra.png";
 
 export default function Asignaturas({ onSelect }) {
@@ -27,7 +27,7 @@ export default function Asignaturas({ onSelect }) {
         }}
       >
         <img
-          src={icon}
+          src={Logo}
           alt="icon"
           style={{ width: "45px", position: "absolute", right: 20, top: 20 }}
         />

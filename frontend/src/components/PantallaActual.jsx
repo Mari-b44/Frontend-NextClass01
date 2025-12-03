@@ -4,18 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Imágenes
 import hallway from "../assets/hallway.png";
 import garra from "../assets/garra.png";
-import icon from "../assets/icon.png";
+import Logo from "../assets/Logo.png";
 
 export default function PantallaActual() {
   return (
     <div
-      className="w-100 min-vh-100 bg-light d-flex justify-content-center p-3"
-      style={{ fontFamily: "Arial" }}
+      className="w-100 min-vh-100 bg-light p-0 m-0"
+      style={{ fontFamily: "Arial", overflowY: "auto" }}
     >
-      <div
-        className="bg-white shadow rounded-4 overflow-hidden"
-        style={{ width: "380px" }}
-      >
+      <div className="bg-white shadow rounded-4 overflow-hidden w-100">
 
         {/* ENCABEZADO */}
         <div
@@ -23,10 +20,10 @@ export default function PantallaActual() {
           style={{
             background: "linear-gradient(180deg,#87D4D3,#78C6C0)",
             borderBottomLeftRadius: "25px",
-            borderBottomRightRadius: "25px"
+            borderBottomRightRadius: "25px",
           }}
         >
-          {/* Flecha */}
+          {/* FLECHA */}
           <button className="btn text-white fw-bold" style={{ fontSize: 22 }}>
             ←
           </button>
@@ -38,7 +35,7 @@ export default function PantallaActual() {
 
           {/* ICONO */}
           <img
-            src={icon}
+            src={Logo}
             alt="icon"
             style={{
               position: "absolute",
@@ -64,11 +61,10 @@ export default function PantallaActual() {
           className="p-3 bg-white"
           style={{
             paddingTop: "55px",
-            position: "relative"
+            position: "relative",
           }}
         >
-
-          {/* GARRA SOBRE LA DIVISIÓN */}
+          {/* GARRA */}
           <img
             src={garra}
             alt="garra"
@@ -76,55 +72,48 @@ export default function PantallaActual() {
               position: "absolute",
               top: "-35px",
               right: "10px",
-              width: "80px",
+              width: "70px",
+              zIndex: 9999
             }}
           />
 
-          {/* CAMBIO: SELECCIÓN */}
-          <h6 className="fw-bold mt-1" style={{ color: "#8C274C" }}>
-            Selección
+          {/* TÍTULO */}
+          <h6 className="fw-bold mt-1" style={{ color: "#278c64ff" }}>
+            Actual
           </h6>
 
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between mt-1">
             <span className="fw-bold fs-5">Docencia I</span>
 
-            {/* Hora ajustada como la pantalla de selección */}
-            <span className="fw-semibold text-end">
+            <span className="fw-bold text-end">
               Hora<br />
               2:30 - 4:30
             </span>
           </div>
 
-          {/* Imagen */}
-          <img src={hallway} alt="hallway" className="w-100 rounded-3 mt-2" />
+          {/* IMAGEN */}
+          <img
+            src={hallway}
+            alt="hallway"
+            className="w-100 rounded-3 mt-3"
+          />
 
-          {/* Botones materia y salón */}
+          {/* BOTONES */}
           <div className="d-flex justify-content-between mt-3">
-
-            {/* Laboratorio Idiomas – #8C274C */}
+            {/* SALÓN */}
             <div
               className="text-white p-2 rounded-3 fw-bold text-center"
-              style={{
-                width: "45%",
-                background: "#8C274C",
-                fontSize: "13px",
-                lineHeight: "16px"
-              }}
+              style={{ width: "47%", background: "#8C274C" }}
             >
-              Laboratorio <br /> Idiomas
+              Laboratorio<br />Idiomas
             </div>
 
-            {/* Asignatura Inglés – #2DA683 */}
+            {/* ASIGNATURA */}
             <div
               className="text-white p-2 rounded-3 fw-bold text-center"
-              style={{
-                width: "45%",
-                background: "#2DA683",
-                fontSize: "13px",
-                lineHeight: "16px"
-              }}
+              style={{ width: "47%", background: "#2DA683" }}
             >
-              Asignatura <br /> Inglés
+              Asignatura<br />Inglés
             </div>
           </div>
 
@@ -133,8 +122,9 @@ export default function PantallaActual() {
           <div className="bg-dark text-white p-2 rounded mb-2">
             Laboratorio 1 — Programación de Aplicaciones Web Progresivas
           </div>
-         
-
+          <div className="bg-dark text-white p-2 rounded mb-2">
+            Laboratorio 2 — Gestión de proyectos 
+          </div>
         </div>
       </div>
     </div>

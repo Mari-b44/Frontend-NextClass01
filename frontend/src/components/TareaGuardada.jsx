@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // Imágenes
 import garra from "../assets/garra.png";
-import logo from "../assets/icon.png";
+import logo from "../assets/Logo.png";
 
 export default function TareaGuardada({ onClose }) {
   return (

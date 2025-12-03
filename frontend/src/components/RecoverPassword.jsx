@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FaEnvelope } from "react-icons/fa";
-import Logoprincipal from "../assets/Logoprincipal.png";
+import Logo from "../assets/Logo.png";
 import garra from "../assets/garra.png";
 
 
@@ -28,7 +28,7 @@ export default function RecoverPassword() {
         }}
       >
         <img
-          src={Logoprincipal}
+          src={Logo}
           alt="Logo"
           style={{
             width: "90px",

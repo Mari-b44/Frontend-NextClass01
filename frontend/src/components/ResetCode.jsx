@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FaKey } from "react-icons/fa";
-import Logoprincipal from "../assets/Logoprincipal.png";
+import Logo from "../assets/Logo.png";
 import garra from "../assets/garra.png";
 
 export default function ResetCode() {
@@ -25,7 +25,7 @@ export default function ResetCode() {
         }}
       >
         <img
-          src={Logoprincipal}
+          src={Logo}
           alt="Logo"
           style={{
             width: "90px",

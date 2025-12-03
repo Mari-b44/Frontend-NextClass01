@@ -4,18 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Imágenes
 import hallway from "../assets/hallway.png";
 import garra from "../assets/garra.png";
-import icon from "../assets/icon.png";
+import Logo from "../assets/Logo.png";
 
 export default function PantallaSeleccion() {
   return (
     <div
-      className="w-100 min-vh-100 bg-light d-flex justify-content-center p-3"
-      style={{ fontFamily: "Arial" }}
+      className="w-100 min-vh-100 bg-light p-0 m-0"
+      style={{ fontFamily: "Arial", overflowY: "auto" }}
     >
-      <div
-        className="bg-white shadow rounded-4 overflow-hidden"
-        style={{ width: "380px" }}
-      >
+      <div className="bg-white shadow rounded-4 overflow-hidden w-100">
+
         {/* ENCABEZADO */}
         <div
           className="p-3 position-relative"
@@ -37,7 +35,7 @@ export default function PantallaSeleccion() {
 
           {/* ICONO */}
           <img
-            src={icon}
+            src={Logo}
             alt="icon"
             style={{
               position: "absolute",
@@ -74,15 +72,12 @@ export default function PantallaSeleccion() {
               position: "absolute",
               top: "-35px",
               right: "10px",
-              width: "80px",
+              width: "70px",
             }}
           />
 
           {/* TÍTULO SELECCIÓN */}
-          <h6
-            className="fw-bold mt-1"
-            style={{ color: "#8C274C" }}
-          >
+          <h6 className="fw-bold mt-1" style={{ color: "#278c64ff" }}>
             Selección
           </h6>
 
@@ -102,21 +97,20 @@ export default function PantallaSeleccion() {
             className="w-100 rounded-3 mt-3"
           />
 
-          {/* BOTONES MATERIA/SALÓN */}
+          {/* BOTONES */}
           <div className="d-flex justify-content-between mt-3">
-
             {/* SALÓN */}
             <div
-              className="text-white p-3 rounded-3 fw-bold text-center"
-              style={{ width: "45%", background: "#8C274C" }}
+              className="text-white p-2 rounded-3 fw-bold text-center"
+              style={{ width: "47%", background: "#8C274C" }}
             >
               Laboratorio<br />Idiomas
             </div>
 
             {/* ASIGNATURA */}
             <div
-              className="text-white p-3 rounded-3 fw-bold text-center"
-              style={{ width: "45%", background: "#2DA683" }}
+              className="text-white p-2 rounded-3 fw-bold text-center"
+              style={{ width: "47%", background: "#2DA683" }}
             >
               Asignatura<br />Inglés
             </div>

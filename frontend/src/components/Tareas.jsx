@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Assets
-import icon from "../assets/icon.png";
+import Logo from "../assets/Logo.png";
 import garra from "../assets/garra.png";
 
 // --- Datos de ejemplo para acordiones/tareas ---
@@ -94,7 +94,7 @@ export default function Tareas() {
         }}
       >
         <div className="d-flex align-items-center gap-3">
-          <img src={icon} alt="logo" style={{ width: 52, height: 52 }} />
+          <img src={Logo} alt="logo" style={{ width: 52, height: 52 }} />
           <h3 className="m-0 text-white fw-bold">Tareas Pendientes</h3>
         </div>
 

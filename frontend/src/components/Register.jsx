@@ -1,6 +1,6 @@
 import { FaUser, FaEnvelope, FaIdBadge, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Logoprincipal from "../assets/Logoprincipal.png";
+import Logo from "../assets/Logo.png";
 import garra from "../assets/garra.png";
 
 
@@ -37,7 +37,7 @@ export default function Register() {
 
       {/* Logo principal */}
       <img
-        src={Logoprincipal}
+        src={Logo}
         alt="Logo principal"
         style={{
           position: "relative",
