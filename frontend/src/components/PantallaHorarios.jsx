@@ -1,5 +1,5 @@
 import React from "react";
-import garra from "../assets/garra.png"; // icono de la garra
+import garra from "../assets/garra.png";
 
 export default function HorarioScreen() {
 
@@ -13,35 +13,37 @@ export default function HorarioScreen() {
     "13:30 - 14:30",
     "14:30 - 15:30",
     "15:30 - 16:30",
-    "14:30 - 15:30",
-    
+    "16:30 - 17:30",
   ];
 
   return (
     <div
       className="min-vh-100 d-flex justify-content-center align-items-start"
       style={{
-        background: "linear-gradient(180deg, #7ad0cc, #def0ef)",
-        paddingTop: 30,
+        background: "linear-gradient(180deg, #69cfcc, #ffffff)",
+        paddingTop: 35,
       }}
     >
 
       {/* CONTENEDOR PRINCIPAL */}
       <div
-        className="bg-white shadow-sm"
+        className="shadow-lg"
         style={{
           width: 360,
-          borderRadius: 25,
+          borderRadius: 28,
           overflow: "hidden",
+          background: "white",
         }}
       >
 
         {/* HEADER */}
         <div
           className="d-flex align-items-center justify-content-between px-3 py-3"
-          style={{ backgroundColor: "#41bfb9" }}
+          style={{
+            background: "linear-gradient(90deg, #41bfb9, #1d9790)",
+          }}
         >
-          {/* ICONO REGRESAR */}
+          {/* REGRESAR */}
           <svg
             width="26"
             height="26"
@@ -56,12 +58,11 @@ export default function HorarioScreen() {
             <path d="M15 18l-6-6 6-6" />
           </svg>
 
-          <h5 className="text-white m-0">Horario</h5>
-
-          <img src={garra} alt="garra" style={{ height: 38 }} />
+          <h5 className="text-white m-0 fw-bold">Horario</h5>
+          <img src={garra} alt="garra" style={{ height: 36 }} />
         </div>
 
-        {/* CONTENIDO */}
+        {/* CONTENT */}
         <div className="p-3">
 
           {/* DÍAS */}
@@ -69,14 +70,15 @@ export default function HorarioScreen() {
             {["L", "M", "M", "J", "V"].map((dia, i) => (
               <button
                 key={i}
-                className="btn"
                 style={{
-                  width: 48,
-                  height: 40,
-                  borderRadius: 10,
-                  backgroundColor: i === 0 ? "#000" : "#ffffff",
-                  color: i === 0 ? "white" : "black",
-                  border: "1px solid #ccc",
+                  width: 50,
+                  height: 42,
+                  borderRadius: 12,
+                  fontWeight: "600",
+                  backgroundColor: i === 0 ? "#1d9790" : "#f4f4f4",
+                  color: i === 0 ? "white" : "#444",
+                  border: "none",
+                  boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
                 }}
               >
                 {dia}
@@ -85,7 +87,10 @@ export default function HorarioScreen() {
           </div>
 
           {/* ENCABEZADOS */}
-          <div className="d-flex mb-2 fw-bold text-secondary">
+          <div
+            className="d-flex mb-2"
+            style={{ fontWeight: 600, color: "#666", fontSize: 14 }}
+          >
             <div style={{ width: 90 }}>Horario</div>
             <div className="flex-fill ps-2">Asignatura</div>
             <div style={{ width: 100 }} className="ps-2">
@@ -96,15 +101,16 @@ export default function HorarioScreen() {
           {/* FILAS */}
           <div style={{ maxHeight: 420, overflowY: "auto" }}>
             {times.map((t, i) => (
-              <div key={i} className="d-flex align-items-center mb-2">
+              <div key={i} className="d-flex align-items-center mb-3">
                 <div style={{ width: 90, fontSize: 13 }}>{t}</div>
 
                 <div className="flex-fill ps-2">
                   <div
                     style={{
-                      height: 28,
-                      borderRadius: 14,
-                      background: "#56c0bb",
+                      height: 30,
+                      borderRadius: 12,
+                      background: "#41bfb9",
+                      boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
                     }}
                   ></div>
                 </div>
@@ -112,9 +118,10 @@ export default function HorarioScreen() {
                 <div style={{ width: 100 }} className="ps-2">
                   <div
                     style={{
-                      height: 28,
-                      borderRadius: 14,
-                      background: "#8f1f37",
+                      height: 30,
+                      borderRadius: 12,
+                      background: "#c8234c",
+                      boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
                     }}
                   ></div>
                 </div>
@@ -125,27 +132,29 @@ export default function HorarioScreen() {
           {/* BOTONES */}
           <div className="d-flex justify-content-between mt-4">
             <button
-              className="px-4 py-2"
               style={{
-                backgroundColor: "#0b7f7a",
+                backgroundColor: "#1c7e79",
                 color: "white",
                 borderRadius: 20,
                 border: "none",
-                width: 120,
+                width: 125,
+                padding: "8px 0",
+                fontWeight: 600,
               }}
             >
               Guardar
             </button>
 
             <button
-              className="px-4 py-2"
               style={{
-                backgroundColor: "#e6e6e6",
+                backgroundColor: "#f3f3f3",
                 color: "#444",
                 borderRadius: 20,
                 border: "none",
-                width: 120,
-                boxShadow: "0px 2px 4px rgba(0,0,0,0.15)",
+                width: 125,
+                padding: "8px 0",
+                fontWeight: 600,
+                boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
               }}
             >
               Cancelar

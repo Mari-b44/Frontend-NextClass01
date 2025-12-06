@@ -28,25 +28,25 @@ import TareaGuardada from './components/TareaGuardada';
 // Control para ocultar NavBar en ciertas pantallas
 function Layout({ children }) {
   const location = useLocation();
-  
+
+  // 👇 Rutas donde NO debe aparecer el navbar
   const hideNavBarRoutes = [
-    "/",
+    "/", 
     "/login",
     "/register",
     "/recover",
     "/reset",
-    "/new", 
-    "/AdminScreens",
-    "/PantallaAdminPrincipal",
-    "/PantallaHorarios",
-    "/HorarioGuardado",
-    "/AggTareas",
-    "/AddTask",
-    "/TareaGuardada",
+    "/new",
+    "/success",
+    "/success2",
+    
+
   ];
-  
-  const shouldHideNavBar = hideNavBarRoutes.includes(location.pathname);
-  
+
+  const shouldHideNavBar = hideNavBarRoutes.some(route =>
+    location.pathname.toLowerCase() === route.toLowerCase()
+  );
+
   return (
     <>
       {!shouldHideNavBar && <NavBar />}
@@ -54,6 +54,7 @@ function Layout({ children }) {
     </>
   );
 }
+
 
 function App() {
   return (

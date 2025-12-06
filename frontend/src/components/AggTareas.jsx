@@ -166,20 +166,21 @@ export default function AggTareas() {
       </div>
 
       {/* BOTÓN + FLOTANTE */}
-      <button
-        className="btn btn-success rounded-circle d-flex align-items-center justify-content-center shadow"
-        style={{
-          width: "55px",
-          height: "55px",
-          position: "fixed",
-          bottom: "25px",
-          right: "25px",
-          fontSize: "28px",
-          zIndex: 999,
-        }}
-      >
-        <i className="bi bi-plus-lg"></i>
-      </button>
+     <button
+  className="btn btn-success rounded-circle d-flex align-items-center justify-content-center shadow"
+  style={{
+    width: "55px",
+    height: "55px",
+    position: "fixed",
+    bottom: "85px",   // <<--- antes 25px
+    right: "25px",
+    fontSize: "28px",
+    zIndex: 999,
+  }}
+>
+  <i className="bi bi-plus-lg"></i>
+</button>
+
     </div>
   );
 }

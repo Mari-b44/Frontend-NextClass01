@@ -1,16 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../assets/Logo.png";
 import garra from "../assets/garra.png";
 
-export default function Asignaturas({ onSelect }) {
+export default function Asignaturas() {
+  const navigate = useNavigate();
+
   const asignaturas = [
     "Gestión de Proyectos II",
     "Integradora",
-    "Negociación Empresarial",
+    "Programación de Aplicaciones Web",
     "Inteligencia de Negocios",
     "Inglés",
   ];
+
+  // 👉 ESTA ES LA FUNCIÓN QUE ENVÍA LA MATERIA POR NAVEGACIÓN
+  const irAAsignatura = (nombre) => {
+    navigate("/PerfilAsignatura", {
+      state: { asignatura: nombre },
+    });
+  };
 
   return (
     <div className="min-vh-100 bg-light" style={{ overflowX: "hidden" }}>
@@ -47,7 +57,7 @@ export default function Asignaturas({ onSelect }) {
         />
       </div>
 
-      {/* BOTONES ELEGANTES Y SOBRIOS */}
+      {/* BOTONES */}
       <div className="container mt-5 d-flex flex-column align-items-center">
         {asignaturas.map((nombre, i) => (
           <button
@@ -55,11 +65,11 @@ export default function Asignaturas({ onSelect }) {
             className="text-white fw-bold shadow"
             style={{
               backgroundColor: "#8A1E41",
-              borderRadius: "14px",   // ⬅️ redondeo moderado
+              borderRadius: "14px",
               fontSize: "17px",
               padding: "12px 20px",
-              width: "250px",         // ⬅️ compacto
-              height: "55px",         // ⬅️ uniforme
+              width: "250px",
+              height: "55px",
               marginBottom: "15px",
               transition: "all 0.3s ease",
               display: "flex",
@@ -69,15 +79,7 @@ export default function Asignaturas({ onSelect }) {
               textAlign: "center",
               cursor: "pointer",
             }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.05)";
-              e.target.style.boxShadow = "0 6px 12px rgba(0,0,0,0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1)";
-              e.target.style.boxShadow = "0 3px 6px rgba(0,0,0,0.2)";
-            }}
-            onClick={() => onSelect(nombre)}
+            onClick={() => irAAsignatura(nombre)}
           >
             {nombre}
           </button>
